@@ -4,4 +4,4 @@
     echo redis-dump {{ options_ternary }} > {{ redis_dump.dest }}.json
   vars:
     options_ternary: '{{ redis_dump.options is defined | ternary (options_defined, "") }}'
-    options_defined: ' -{{ redis_dump.options | d () | join ("- ") }}'
+    options_defined: '-{{ redis_dump.options | d () | join ("- ") }} '
