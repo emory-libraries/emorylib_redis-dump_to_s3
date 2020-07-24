@@ -1,3 +1,3 @@
 ---
 - name: Redis-dump command
-  shell: '{{ lookup ("template", redis-dump_command.j2) }}'
+  shell: '{{ lookup ("template", "redis-dump_command.j2") }}'
