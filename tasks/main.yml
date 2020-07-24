@@ -4,6 +4,10 @@
   debug:
     msg: '{{ ansible_env.HOME }}'
 
+- debug:
+    msg: 'Conditional is working'
+  when: redis_dump.dest | dirname == ""
+  
 - pause:
 
 - name: Include tasks to install redis-dump via gem
