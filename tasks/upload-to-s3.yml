@@ -7,4 +7,5 @@
     key_prefix: '{{ redis_dump.s3.key_prefix }}'
     include: '*{{ redis_dump.dest | basename }}'
   vars:
-    file_root_ternary: '{{ redis_dump.dest | dirname == "" | ternary ("~/", redis_dump.dest) }}'
+    file_root_ternary: '{{ redis_dump.dest | dirname == "" | ternary (home_dir, redis_dump.dest) }}'
+    home_dir: '{{ ansible_env.HOME }}'
