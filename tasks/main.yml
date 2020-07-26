@@ -13,3 +13,9 @@
   include_tasks:
     file: upload-to-s3.yml
   when: redis_dump.s3 is defined
+
+- name: Delete file if selected
+  file:
+    path: '{{ redis_dump.dest }}.json'
+    state: absent
+  when: redis_dump.delete_local | d (True)
