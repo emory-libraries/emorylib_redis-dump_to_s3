@@ -16,6 +16,6 @@
 
 - name: Delete file if selected
   file:
-    path: '{{ redis_dump.dest }}.json'
+    path: '{{ redis_dump_dest }}.json'
     state: absent
   when: redis_dump.delete_local | d (True)
