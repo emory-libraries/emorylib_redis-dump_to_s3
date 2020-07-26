@@ -5,7 +5,8 @@
     file_root: '{{ file_root_ternary }}'
     region: '{{ redis_dump.s3.region }}'
     key_prefix: '{{ redis_dump.s3.key_prefix }}'
-    include: '*.json'
+    include: '*{{ redis_dump.dest }}'
+    exclude: '*'
   vars:
     file_root_ternary: '{{ (redis_dump.dest | dirname == "") | ternary (home_dir, redis_dump.dest) }}'
     home_dir: '{{ ansible_env.HOME }}'
